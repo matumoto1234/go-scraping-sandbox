@@ -10,8 +10,8 @@ func main() {
 
 	c := colly.NewCollector()
 
-	c.OnHTML("submission-code", func(e *colly.HTMLElement) {
-		fmt.Println(e.Text)
+	c.OnHTML("body", func(e *colly.HTMLElement) {
+		fmt.Println(e.DOM.Find("#submission-code").Text())
 	})
 
 	c.Visit("https://atcoder.jp/contests/abc248/submissions/31042482")
